@@ -1,6 +1,8 @@
 #ifndef clox_scanner_h
 #define clox_scanner_h
 
+typedef enum { false, true } bool;
+
 typedef enum
 {
     // Single-character tokens.

@@ -1,3 +1,3 @@
 clox :
-	gcc *.c -Wall -Werror -o clox
+	clang *.c -Wall -Werror -o clox
 
