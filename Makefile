@@ -1,10 +1,18 @@
 CFLAGS=-Wall -Werror
 
 TARGET = clox
-OBJS = chunk.o memory.o debug.o
+OBJS = chunk.o memory.o debug.o value.o
+TESTS = chunk_test
 
 $(TARGET): main.c $(OBJS)
-	gcc $(CFLAGS) -o clox $(OBJS) main.c
+	gcc $(CFLAGS) -o $(TARGET) $(OBJS) main.c
 
 %.o: %.c %.h
-	$(CC) $(CFLAGS) -c -o $@ $<
+	gcc $(CFLAGS) -c -o $@ $<
+
+%_test: $(OBJS) %_test.c %.c %.h
+	gcc $(CFLAGS) -o $@ $(OBJS) $@.c
+
+.PHONY: test
+test: $(TESTS)
+	./chunk_test
