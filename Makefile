@@ -13,6 +13,6 @@ $(TARGET): main.c $(OBJS)
 %_test: $(OBJS) %_test.c %.c %.h
 	gcc $(CFLAGS) -o $@ $(OBJS) $@.c
 
-.PHONY: test
-test: $(TESTS)
+.PHONY: check
+check: $(TESTS)
 	./chunk_test
