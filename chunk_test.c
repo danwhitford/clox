@@ -6,8 +6,6 @@
 
 int main()
 {
-    printf("=== Chunk test ===\n");
-
     Chunk chunk;
     initChunk(&chunk);
 

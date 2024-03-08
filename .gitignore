@@ -1,2 +1,3 @@
 clox
 *.o
+_test

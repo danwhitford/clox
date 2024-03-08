@@ -1,7 +1,6 @@
 CFLAGS=-Wall -Werror
 
 TARGET = clox
-SOURCES := $(wildcard *.h)
 OBJS = chunk.o memory.o debug.o value.o vm.o
 TESTS = chunk_test vm_test
 
