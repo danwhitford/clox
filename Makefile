@@ -1,8 +1,8 @@
 CFLAGS=-Wall -Werror
 
 TARGET = clox
-OBJS = chunk.o memory.o debug.o value.o
-TESTS = chunk_test
+OBJS = chunk.o memory.o debug.o value.o vm.o
+TESTS = chunk_test vm_test
 
 $(TARGET): main.c $(OBJS)
 	gcc $(CFLAGS) -o $(TARGET) $(OBJS) main.c
@@ -15,4 +15,7 @@ $(TARGET): main.c $(OBJS)
 
 .PHONY: check
 check: $(TESTS)
-	./chunk_test
+	@for script in *_test; do \
+		echo "Running $$script..."; \
+		./"$$script"; \
+	done
